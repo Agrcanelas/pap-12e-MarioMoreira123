@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-    
-</html>
-<body class="news">
+<header>
+    <div class="nav">
     <header>
     <div class="nav">  
     <ul>
@@ -20,6 +11,5 @@
     </ul>     
     </div>
     </header>
-    <?php include 'header.php';?>
-
-</body>
+    </div>
+  </header>

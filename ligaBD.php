@@ -113,9 +113,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login</title>
     <style>
         body { font-family: Arial, sans-serif; padding: 2rem; }
-        .box { max-width: 420px; margin: 0 auto; border: 1px solid #ddd; padding: 1rem 1.2rem; border-radius: 6px; }
+        .box { max-width: 420px; margin: 0 auto; border: 1px solid #000000ff; padding: 1rem .2rem; border-radius: 6px; }
         .error { color: #9b0000; }
-        label { display:block; margin-top:0.8rem; }
+        label { display:block; margin-top:.8rem; }
         input[type=text], input[type=password] { width:100%; padding:8px; box-sizing:border-box; }
         button { margin-top:1rem; padding:8px 12px; }
     </style>
@@ -146,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Entrar</button>
     </form>
 
-    <p style="margin-top:1rem; font-size:0.9rem; color:#666;">Não tem conta? Registe-se.</p>
+    <p style="margin-top:1rem; font-size:0.9rem; color:#666;">Não tem conta? Registe-se num script separado.</p>
 </div>
 </body>
 </html>

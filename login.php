@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registo de utilizadores</title>
-</head>
+    <link rel="stylesheet" href="style.css">
+</head>  
 <body>
+    <header>
+    <div class="nav">  
+    <ul>
+        <li class="home"><a href="index.php">Home</a></li>
+        <li class="about"><a href="about.php">sobre</a></li>
+        <li class="donate"><a href="news.php">donate</a></li>
+        <li class="contact"><a href="contact.php">Contact</a></li>
+        <li class="login"><a href="login.php">login</a></li>  
+    </ul>     
+    </div>
+    </header>
 <?php
 
 
@@ -34,6 +46,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $pdo = null;
 ?>
 
-   
 </body>
 </html>
