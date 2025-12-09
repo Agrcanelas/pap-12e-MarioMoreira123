@@ -10,28 +10,36 @@ header {
     top: 0;
     left: 0;
     width: 100%;               /* ocupa toda a largura */
-    background-color: #333;    /* cor do fundo */
-    z-index: 1000;             /* fica por cima do conteúdo */
+    background-color: #0047AB;    /* cor do fundo */
+    z-index: 1000; 
+    height: 80px;          /* fica por cima do conteúdo */
 }
 
 /* Estilos da barra de navegação */
+.nav {
+    display: flex;
+    justify-content: center;    /* centraliza os itens horizontalmente */
+    align-items: center;        /* centraliza os itens verticalmente */
+    height: 100%;               /* ocupa toda a altura do header */
+}
 .nav ul {
     list-style: none;
     display: flex;             /* itens em linha */
-    justify-content: center;   /* centralizar os menus */
+    justify-content: center, ;   /* centralizar os menus */
     padding: 15px 0;          
     margin: 0;
 }
 
 .nav ul li {
-    margin: 0 20px;            /* espaçamento entre botões */
+    margin: 0 40px;            /* espaçamento entre botões */
 }
 
 .nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: 24px;
     padding: 10px 15px;
+    font
 }
 
 .nav ul li a:hover,
