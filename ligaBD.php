@@ -17,5 +17,5 @@ if ($conn->connect_error) {
 // Caso contrário, a ligação foi bem-sucedida
 // Aqui você pode realizar operações no base de dados, como inserções, consultas, etc.
 
-echo "Ligação estabelecida com sucesso!";
+echo "<script>alert('Ligação estabelecida com sucesso!');</script>";
 ?>
