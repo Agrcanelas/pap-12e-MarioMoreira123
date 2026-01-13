@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `associacoes` (
   `data_criacao` date DEFAULT NULL,
   `NIF` int DEFAULT NULL,
   PRIMARY KEY (`A_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `associacoes`
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `doacoes` (
   PRIMARY KEY (`D_id`),
   KEY `fk_doacoes_utilizador` (`U_id`),
   KEY `fk_doacoes_associacoes` (`A_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `doacoes`
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
   `data_nasc` date DEFAULT NULL,
   `NIF` int DEFAULT NULL,
   PRIMARY KEY (`U_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `utilizador`
