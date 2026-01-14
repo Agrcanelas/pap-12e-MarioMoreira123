@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <main>
         <div class="login-container">
-    <h2>Login</h2>
+    <h2>Registar</h2>
     
     <?php if (isset($erro_login)) { ?>
         <div class="error-message"><?php echo $erro_login; ?></div>
@@ -69,12 +69,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
         
-        <button type="submit">Entrar</button>
+        <button type="submit">registar</button>
     </form>
 
     <!-- Link para registo -->
     <div class="register-link">
-        <p>Não tem conta? <a href="registar.php">Registe-se aqui</a></p>
+        <p>ja tem conta? <a href="login.php">carregue aqui</a></p>
     </div>
 </div>
 
