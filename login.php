@@ -62,15 +62,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="error-message"><?php echo $erro_login; ?></div>
     <?php } ?>
     
-    <form method="POST" action="login.php">
-        <label for="codigo">Código de Utilizador</label>
-        <input type="text" id="codigo" name="codigo" required>
-        
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-        
-        <button type="submit">Entrar</button>
-    </form>
+    <form method="POST" action="entradalogin.php">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="senha">Password</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <label for="telefone">Telefone</label>
+            <input type="text" id="telefone" name="telefone" required>
+
+            <label for="data_nasc">Data de Nascimento</label>
+            <input type="date" id="data_nasc" name="data_nasc" required>
+
+            <label for="nif">NIF</label>
+            <input type="text" id="nif" name="nif" maxlength="9" required>
+
+            <button type="submit">Registar</button>
+        </form>
 
     <!-- Link para registo -->
     <div class="register-link">

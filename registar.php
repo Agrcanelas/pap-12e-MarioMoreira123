@@ -1,24 +1,34 @@
 <?php
-session_start();
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 require 'ligaBD.php';
 
 $mensagem = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $nome = $_POST["nome"];
     $email = $_POST["email"];
-    $password = $_POST["senha"];
+    $senha = $_POST["senha"];
     $telefone = $_POST["telefone"];
     $data_nasc = $_POST["data_nasc"];
-    $nif = $_POST["nif"];
+    $nif = $_POST["nif"]; // ⚠ nome do campo no HTML deve ser minúsculo
 
+    // Validação simples do NIF
     if (!preg_match('/^\d{9}$/', $nif)) {
         $mensagem = "NIF inválido (9 dígitos).";
     } else {
-        $senhaHash = password_hash($password, PASSWORD_DEFAULT);
 
-        $check = $conn->prepare("SELECT email FROM utilizador WHERE email = ?");
+        // Hash da senha
+        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+
+        // Verificar email duplicado
+        $check = $conn->prepare("SELECT U_id FROM utilizador WHERE email = ?");
         $check->bind_param("s", $email);
         $check->execute();
         $check->store_result();
@@ -26,41 +36,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($check->num_rows > 0) {
             $mensagem = "Este email já está registado.";
         } else {
+
+            // Inserir na base de dados
             $stmt = $conn->prepare(
-                "INSERT INTO utilizador (nome, email, senha, telefone, data_nasc, nif) VALUES (?, ?, ?, ?, ?, ?)"
+                "INSERT INTO utilizador (nome, email, senha, telefone, data_nasc, nif)
+                 VALUES (?, ?, ?, ?, ?, ?)"
             );
             $stmt->bind_param("ssssss", $nome, $email, $senhaHash, $telefone, $data_nasc, $nif);
 
-            if ($stmt->execute()) {
-                header("Location: entradalogin.php");
-                exit();
-            } else {
-                $mensagem = "O registo não funcionou: " . $stmt->error;
+            if (!$stmt->execute()) {
+                die("ERRO MYSQL: " . $stmt->error);
             }
+
+            // Guardar dados do utilizador na sessão
+            $_SESSION["user"] = [
+                "U_id" => $stmt->insert_id,
+                "nome" => $nome,
+                "email" => $email
+            ];
+
+            // Redirecionar para entradalogin.php
+            header("Location: entradalogin.php");
+            exit();
         }
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registo de Utilizadores</title>
+    <title>Registar Utilizador</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="news">
 
-<header>
-    <div class="nav">  
-        <ul>
-            <li class="home"><a href="index.php">Home</a></li>
-            <li class="about"><a href="about.php">Sobre</a></li>
-            <li class="donate"><a href="donate.php">Doar</a></li>
-            <li class="login"><a href="login.php">Login</a></li>  
-        </ul>     
-    </div>
-</header>
+<?php include 'headerlogin.php'; ?>
 
 <main>
     <div class="login-container">
@@ -70,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="error-message"><?php echo $mensagem; ?></div>
         <?php } ?>
 
-        <form method="POST" action="entradalogin.php">
+        <form method="POST">
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" required>
 
