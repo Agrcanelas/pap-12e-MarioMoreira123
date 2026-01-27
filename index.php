@@ -10,7 +10,7 @@
 
 <body class="news">
     
-    <?php include 'header.php';?>
+    <?php include 'headerlogin.php';?>
 
 </body>
 </html>

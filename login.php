@@ -63,8 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php } ?>
     
     <form method="POST" action="entradalogin.php">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" required>
 
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
@@ -72,16 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="senha">Password</label>
             <input type="password" id="senha" name="senha" required>
 
-            <label for="telefone">Telefone</label>
-            <input type="text" id="telefone" name="telefone" required>
-
-            <label for="data_nasc">Data de Nascimento</label>
-            <input type="date" id="data_nasc" name="data_nasc" required>
-
-            <label for="nif">NIF</label>
-            <input type="text" id="nif" name="nif" maxlength="9" required>
-
-            <button type="submit">Registar</button>
+            <button type="submit">login</button>
         </form>
 
     <!-- Link para registo -->
@@ -94,3 +83,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  
 </body>
 </html>
+                

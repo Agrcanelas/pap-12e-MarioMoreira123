@@ -55,8 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 "email" => $email
             ];
 
-            // Redirecionar para entradalogin.php
-            header("Location: entradalogin.php");
+            // Redirecionar para index.php
+            header("Location: index.php");
             exit();
         }
     }
